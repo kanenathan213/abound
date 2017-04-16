@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {render} from 'react-dom'
 import {AppContainer} from 'react-hot-loader'
-import App from './components/App'
+import App from 'views/App'
 import { Provider } from 'react-redux'
 import createStore from './createStore'
 
@@ -28,8 +28,8 @@ declare let module: {hot: any}
 declare let process: {NODE_ENV: string}
 
 if (module.hot) {
-    module.hot.accept('./components/App', () => {
-        const NewApp = require('./components/App').default
+    module.hot.accept('./views/App', () => {
+        const NewApp = require('./views/App').default
 
         render(
             <AppContainer>

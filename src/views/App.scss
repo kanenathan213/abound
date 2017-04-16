@@ -1,0 +1,31 @@
+@import '~flexboxgrid';
+
+.app {
+  font-family: helvetica, arial, sans-serif;
+  padding: 0 2em;
+  max-width: 900px;
+  margin: auto;
+}
+
+.header {
+  background: green;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 5px 10px;
+  width: 100%;
+
+  .header-content {
+    margin: auto;
+    max-width: 800px;
+  }
+}
+
+.main {
+  margin-top: 50px;
+}
+
+.recharts-surface {
+  overflow: visible;
+}

@@ -9,8 +9,7 @@
     "babel",
     "sass",
     "hmr",
-    "starter",
-    "boilerplate"
+    "redux"
   ],
   "author": "Nathan Kane",
   "license": "MIT",
@@ -26,8 +25,8 @@
     "lint": "npm run lint:ts && npm run lint:sass",
     "lint:ts": "tslint './src/**/*.ts*' --format=stylish --force",
     "lint:sass": "stylelint ./src/**/*.scss",
-    "start": "webpack-dev-server --open",
-    "test": "jest"
+    "start": "webpack-dev-server --open --history-api-fallback",
+    "test": "jest --watch"
   },
   "devDependencies": {
     "@types/jest": "^19.2.2",
@@ -57,17 +56,22 @@
     "style-loader": "^0.16.1",
     "stylelint-config-standard": "^16.0.0",
     "stylelint-webpack-plugin": "^0.7.0",
+    "ts-jest": "^19.0.9",
     "tslint": "^5.1.0",
     "typescript": "^2.3.0",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
+    "flexboxgrid": "^6.3.1",
     "humps": "^2.0.0",
     "immutable": "^3.8.1",
+    "keymirror": "^0.1.1",
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^5.0.0-alpha.6",
+    "recharts": "^0.22.1",
     "redux": "^3.6.0",
     "redux-actions": "^2.0.1",
     "redux-form": "^6.6.3",
@@ -82,14 +86,15 @@
       "jsx"
     ],
     "transform": {
-      "^.+\\.(ts|tsx)$": "<rootDir>/config/jest/jest.preprocessor.js"
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
     ],
     "testRegex": "/__tests__/.*\\.(ts|tsx)$",
-    "moduleDirectories": [
-      "node_modules"
+    "modulePaths": [
+      "<rootDir>/src",
+      "<rootDir>/node_modules"
     ],
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy",

@@ -7,6 +7,9 @@ import { updateRoute } from './actions/creators/routes'
 import { Map } from 'immutable'
 import loggerMiddleware from './middleware/reduxLogger'
 
+declare let module: {hot: any}
+declare let require: any
+
 export const history = createHistory()
 
 export default (initialState = Map()) => {

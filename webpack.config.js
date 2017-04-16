@@ -5,7 +5,15 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
     resolve: {
+        alias: {
+          react: resolve(__dirname, './node_modules/react'),
+          React: resolve(__dirname, './node_modules/react')
+        },
         extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".jsx"],
+        modules: [
+          'src',
+          'node_modules'
+        ]
     },
     entry:   [
         "react-hot-loader/patch", // activate HMR for React
