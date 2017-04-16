@@ -33,8 +33,22 @@ class Wrapper extends React.Component<any, undefined> {
             <div>Time till retirement</div>
           </div>
           <LineChart width={600} height={300} margin={{ top: 5, right: 30, left: 20, bottom: 5 }} data={chartData}>
-            <Line type='monotone' dataKey='monthlyPassiveIncome' stroke='#2b8e69' strokeWidth='2' />
-            <Line type='monotone' dataKey='monthlyExpenses' stroke='#c58c01' strokeWidth='2' />
+            <Line
+              type='monotone'
+              dataKey='monthlyPassiveIncome'
+              stroke='#2b8e69'
+              strokeWidth='2'
+              dot={false}
+              name='Monthly Passive Income'
+            />
+            <Line
+              type='monotone'
+              dataKey='monthlyExpenses'
+              stroke='#c58c01'
+              strokeWidth='2'
+              dot={false}
+              name='Monthly Expenses'
+            />
             <XAxis
               dataKey='month'
               padding={{ left: 30, right: 30 }}

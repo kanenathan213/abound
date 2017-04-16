@@ -49,8 +49,8 @@ export const getChartData = (userData: UserDataType) => {
   return monthData.map(datum => {
     return {
       month: datum.month,
-      monthlyPassiveIncome: (datum.totalAssetsDollars * datum.annualSafeWithdrawlRate / 12),
-      monthlyExpenses: datum.expensesDollars
+      monthlyPassiveIncome: Number((datum.totalAssetsDollars * datum.annualSafeWithdrawlRate / 12).toFixed(2)),
+      monthlyExpenses: Number(datum.expensesDollars.toFixed(2))
     }
   })
 }

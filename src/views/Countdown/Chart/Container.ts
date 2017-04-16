@@ -10,7 +10,9 @@ interface OwnProps {
 }
 
 const mapStateToProps = (state: Map<any, Object>, ownProps: OwnProps) => {
-  const userData = state.toJS().form[FORM_NAMES.projection] || {
+  const formState = state.toJS().form[FORM_NAMES.projection]
+  const formValues = formState && formState.values
+  const userData = formValues || {
     incomeDollars: 6000,
     totalAssetsDollars: 200000,
     expensesDollars: 1500,
