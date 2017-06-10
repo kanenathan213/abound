@@ -1,6 +1,7 @@
-import { createAction } from 'redux-actions'
-
-const locationChange = createAction('ROUTE_CHANGE')
+const locationChange = (payload) => ({
+  type: 'ROUTE_CHANGE',
+  payload,
+})
 
 export const updateRoute = (args) => {
   const { dispatch } = args

@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
-import { reduxForm } from 'redux-form/immutable'
+import { reduxForm } from 'redux-form'
 import FORM_NAMES from 'constants/form'
 import Form from './Form'
 import PROJECTION_CONSTANTS from 'constants/projection'
-import { Map } from 'immutable'
 
 interface OwnProps {
 }
@@ -12,8 +11,7 @@ const onSubmitSuccess = (result, dispatch, props) => {
   props.history.push('/countdown')
 }
 
-const mapStateToProps = (state: Map<any, Object>, ownProps: OwnProps) => {
-  const initialValuesObj = {
+  const initialValues = {
     annualIncomeGrowthRate: PROJECTION_CONSTANTS.ANNUAL_INCOME_GROWTH,
     annualAssetsGrowthRate: PROJECTION_CONSTANTS.ANNUAL_ASSETS_GROWTH_RATE,
     annualExpensesGrowthRate: PROJECTION_CONSTANTS.ANNUAL_EXPENSES_GROWTH_RATE,
@@ -23,8 +21,10 @@ const mapStateToProps = (state: Map<any, Object>, ownProps: OwnProps) => {
     expensesDollars: 500
   }
 
+const mapStateToProps = (state: Object, ownProps: OwnProps) => {
+
   return {
-    initialValues: initialValuesObj
+    initialValues
   }
 }
 

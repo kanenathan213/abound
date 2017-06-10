@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom'
 export interface AppProps {
 }
 
-export default class Header extends React.Component<AppProps, undefined> {
+class Header extends React.Component<AppProps, undefined> {
+    shouldComponentUpdate() {
+      return false
+    }
     render() {
         return (
           <div className='header'>
@@ -16,3 +19,5 @@ export default class Header extends React.Component<AppProps, undefined> {
         )
     }
 }
+
+export default Header

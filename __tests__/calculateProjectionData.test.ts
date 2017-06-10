@@ -1,5 +1,5 @@
-import { getProjectedMonth, getChartData } from 'utils/calculateProjectionData'
-import PROJECTION_CONSTANTS from 'constants/projection'
+import { getProjectedMonth, getChartData } from '../src/utils/calculateProjectionData'
+import PROJECTION_CONSTANTS from '../src/constants/projection'
 import {} from 'jest'
 
 describe('getProjectedMonth()', () => {

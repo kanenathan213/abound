@@ -1,7 +1,8 @@
 const webpack         = require("webpack");
 const {resolve}       = require("path");
 const {CheckerPlugin} = require("awesome-typescript-loader")
-const StyleLintPlugin = require('stylelint-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     resolve: {
@@ -23,7 +24,7 @@ module.exports = {
     ],
     output:  {
         filename:   "bundle.js", // the output bundle
-        path:       resolve(__dirname, "public"),
+        path:       resolve(__dirname, "dist"),
         publicPath: "/" // necessary for HMR to know where to load the hot update chunks
     },
 
@@ -32,7 +33,7 @@ module.exports = {
 
     devServer: {
         hot:         true, // enable HMR on the server
-        contentBase: resolve(__dirname, "public"), // match the output path
+        contentBase: resolve(__dirname, "dist"), // match the output path
         publicPath:  "/" // match the output `publicPath`
     },
 
@@ -70,6 +71,16 @@ module.exports = {
         new StyleLintPlugin(),
         new webpack.HotModuleReplacementPlugin(), // enable HMR globally
         new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
+        new HtmlWebpackPlugin({
+          template : resolve(__dirname, 'public/index.html'),
+          hash     : false,
+          favicon  : resolve(__dirname, 'public/favicon.ico'),
+          filename : 'index.html',
+          inject   : 'body',
+          minify   : {
+            collapseWhitespace : true
+          }
+        }),
 
     ],
     externals:   {

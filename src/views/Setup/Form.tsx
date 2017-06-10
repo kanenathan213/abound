@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Field } from 'redux-form/immutable'
+import { Field } from 'redux-form'
 import InputText from 'components/InputText'
 import validators from '../../utils/validators'
 
